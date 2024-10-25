@@ -24,7 +24,6 @@ const junit = require('junit-report-builder');
 
     if (title === 'Example Domain') {
       console.log('Test Passed!');
-      testCase.success()
       process.exit(0);
     } else {
       console.error('Test Failed! Incorrect title.');
