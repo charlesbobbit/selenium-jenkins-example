@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "junit-report-builder": "^5.1.1",
     "selenium-webdriver": "^4.25.0"
   }
 }
