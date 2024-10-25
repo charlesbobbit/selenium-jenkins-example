@@ -40,6 +40,6 @@ const junit = require('junit-report-builder');
   } finally {
     await driver.quit();
     
-    junit.writeTo('selenium-test-results.xml');
+    junit.writeTo('/var/lib/jenkins/workspace/Selenium-CI/selenium-test-results.xml');
   }
 })();
