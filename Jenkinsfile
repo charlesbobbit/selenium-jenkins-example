@@ -26,7 +26,7 @@ pipeline {
 
         always {
             // Archive the JUnit test results (even if tests fail).
-            junit 'selenium-test-results.xml'
+            junit '**/selenium-test-results.xml'
         }
     }
 }

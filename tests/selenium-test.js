@@ -20,21 +20,27 @@ const junit = require('junit-report-builder');
     let title = await driver.getTitle();
     console.log(`Page title is: ${title}`);
 
+    const testCase = suite.testCase().className('ExampleTest').name('Check Page Title');
+
     if (title === 'Example Domain') {
       console.log('Test Passed!');
-      suite.testCase().className('ExampleTest').name('Check Page Title').time(1).success();
+      testCase.success()
       process.exit(0);
     } else {
       console.error('Test Failed! Incorrect title.');
-      suite.testCase().className('ExampleTest').name('Check Page Title').time(1).failure('Title did not match');
+      testCase.failure('Title did not match')
       process.exit(1);
     }
   } catch (error) {
     console.error('Test Failed with Error:', error);
-    suite.testCase().className('ExampleTest').name('Check Page Title').time(1).failure(error.message);
+    
+    const testCase = suite.testCase().className('ExampleTest').name('Check Page Title');
+    testCase.failure(error.message);
+
     process.exit(1);
   } finally {
     await driver.quit();
+    
     junit.writeTo('selenium-test-results.xml');
   }
 })();
